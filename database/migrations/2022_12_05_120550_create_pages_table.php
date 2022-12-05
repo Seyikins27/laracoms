@@ -22,7 +22,7 @@ return new class extends Migration
             $table->mediumText('content');
             $table->longText('boiler_plate');
             $table->boolean('published')->default(false);
-            $table->foreignId('page_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreign('sub_page')->references('id')->on('pages')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }
