@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('url');
+            $table->string('url')->unique();
             $table->string('seo_tags');
-            $table->string('banner_imge');
+            $table->string('banner_image');
             $table->mediumText('content');
             $table->longText('boiler_plate');
+            $table->bigInteger('sub_page')->unsigned();
             $table->boolean('published')->default(false);
             $table->foreign('sub_page')->references('id')->on('pages')->onDelete('cascade')->nullable();
             $table->timestamps();

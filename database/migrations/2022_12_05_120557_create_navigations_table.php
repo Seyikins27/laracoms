@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->boolean('main')->default(true);
             $table->string('url');
+            $table->bigInteger('sub_navigation')->unsigned();
             $table->foreign('sub_navigation')->references('id')->on('navigations')->onDelete('cascade')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
